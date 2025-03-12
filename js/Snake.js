@@ -11,59 +11,28 @@ class Snake {
 
         // Начальный набор координат змейки
         this.snake = [
-            { x: 3, y: 4 },
             { x: 4, y: 4 },
+            { x: 3, y: 4 },
         ];
 
-    }
-
-    death() {
-        // конец игры
-    }
-
-    update() {
-        // обновление змейки
-        // при каких условиях меняться
     }
 
     // Отрисовка змейки
     draw(playFieldElement, cellSize) {
 
-        for (var i = 0; i < snake.length; i++) {
+        for (var i = 0; i < this.snake.length; i++) {
             var elementPart = document.createElement("div");
             elementPart.className = "snake";
-            elementPart.style.left = snake[i].x * cellSize + "px";
-            elementPart.style.top = snake[i].y * cellSize + "px";
+            elementPart.style.left = this.snake[i].x * cellSize + "px";
+            elementPart.style.top = this.snake[i].y * cellSize + "px";
             playFieldElement.appendChild(elementPart);
-          }
-          
-    }
-
-/*    control() {
-        // управление змейкой
-        // обработка кнопок на клавиатуре
-     // Обработка нажатий клавиш
-     document.addEventListener("keydown", function (event) {
-        changeDirection(event.keyCode);
-    });    }*/
-
-    // Изменение направления движения змейки
-    changeDirection(keyCode) {
-        // 37: влево, 38: вверх, 39: вправо, 40: вниз
-        if (keyCode === 37 && direction !== "right") {
-          direction = "left";
-        } else if (keyCode === 38 && direction !== "down") {
-          direction = "up";
-        } else if (keyCode === 39 && direction !== "left") {
-          direction = "right";
-        } else if (keyCode === 40 && direction !== "up") {
-          direction = "down";
         }
-    }  
+          
+    } 
 
     // Перемещение змейки(обновление данных в массиве координат тела змейки)
     move(playFieldWidth, playFieldHeight, cellSize) {
-
+        alert(this.snake.length);
         var head = { x: this.snake[0].x, y: this.snake[0].y }; // координаты головы змейки
   
         // Изменение координат головы в зависимости от направления
@@ -82,7 +51,7 @@ class Snake {
   
         // Проверка столкновения со стеной (смена координат для появления змейки с другой стороны поля)
         // Перебор всех клеток змейки
-        for (var i = 0; i < this.snake.length; i++) {
+/*        for (var i = 0; i < this.snake.length; i++) {
             if  (this.snake[i].x < 0) {
                 this.snake[i].x = playFieldWidth / cellSize - 1;
             } else if (this.snake[i].x >= playFieldWidth / cellSize) {
@@ -93,7 +62,7 @@ class Snake {
             } else if (this.snake[i].y >= playFieldHeight / cellSize) {
                 this.snake[i].y = 0;  
             }    
-        }
+        }*/
 
     }
   
@@ -124,20 +93,6 @@ class Snake {
         return false;
 
     }  
-
-/*   check
-        if (checkCollision()) {
-            alert(`Ваш счет: ${score}`);
-            if (localStorage.getItem('myKey') < score) {
-                localStorage.setItem('myKey', score);
-                updateBestResult(score);
-            }
-            // Запускаем новую игру
-            resetGame();
-        }
-  
-    }  */
-  
  
 }
 

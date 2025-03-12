@@ -29,8 +29,7 @@ class Main {
         this.PlayField.clear(); // удаление отрисованных элементов
         
         this.Snake.move(this.PlayField.width, this.PlayField.height, this.PlayField.cellSize); // перемещение змейки (обновление данных в массиве координат тела змейки)       
-        
-        if (this.Snake.checkCollision()) { // проверка столкновения змейки с собой
+/*        if (this.Snake.checkCollision()) { // проверка столкновения змейки с собой
             alert(`GAME OVER! Ваш счет: ${this.Score.score}`);
             if (localStorage.getItem('myRes') < this.Score.score) {
                 localStorage.setItem('myRes', this.Score.score);
@@ -39,9 +38,9 @@ class Main {
 
             // Сброс игры
             this.resetGame();
-        }
+        }*/
         
-        if (this.Snake.checkApple(this.Apple)) { // проверка съела ли змейка яблоко
+/*        if (this.Snake.checkApple(this.Apple.apple)) { // проверка съела ли змейка яблоко
             
             this.Score.score += 1; // увеличение количества очков
         
@@ -49,13 +48,13 @@ class Main {
                 this.Apple.generatePosition(this.PlayField.width, this.PlayField.height, this.PlayField.cellSize); // генерация позиции яблока
             } while (!this.Apple.checkPosition(this.Snake.snake)) // проверка корректности позиции яблока
         
-        }             
-        
-        this.Snake.draw(this.PlayField.element, this.PlayField.cellSize); // отрисовка змейки    
-    
+        }*/
+       
+        this.Snake.draw(this.PlayField.element, this.PlayField.cellSize); // отрисовка змейки
+            
         this.Apple.draw(this.PlayField.element, this.PlayField.cellSize); // отрисовка яблока
     
-        this.Score.draw(); // отрисовка табло       
+//        this.Score.draw(); // отрисовка табло       
 
     }
 
@@ -63,7 +62,6 @@ class Main {
         alert('test!!!');
     }
 
-    // Запуск игры
     play() {
         setInterval(this.gameLoop(), this.Snake.speed); // игровой цикл с заданным интервалом
     }
@@ -85,12 +83,10 @@ function changeDirection(keyCode) {
 };
 
 // Обработка нажатий клавиш
-document.addEventListener("keydown", function (event) {
+/*document.addEventListener("keydown", function (event) {
     changeDirection(event.keyCode);
-  });
+  });*/
 
-new Main().test();
-
-
-
-//export default Main;
+// Запуск игры
+const main = new Main();
+main.play();

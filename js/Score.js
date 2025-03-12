@@ -18,17 +18,6 @@ class Score {
 
     }
 
- /*   increase() {
-        // увеличение кол-ва очков
-        // перерисовка табло (не полная)
-        this._score =+ 1;
-    }*/
-
- /*   reset() {
-        // сброс очков
-        this._score = 0;
-    }*/
-
 }
 
 export default Score;
