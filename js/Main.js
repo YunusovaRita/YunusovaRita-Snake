@@ -60,7 +60,7 @@ class Main {
     }
 
     test() {
-        alert('test!');
+        alert('test!!!');
     }
 
     // Запуск игры
@@ -69,4 +69,6 @@ class Main {
     }
 }
 
-export default Main;
+new Main().test();
+
+//export default Main;
