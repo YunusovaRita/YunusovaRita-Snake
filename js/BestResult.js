@@ -5,15 +5,15 @@ class BestResult {
 
         // Ссылка на элемент лучшего результата
         this.element = document.getElementById("bestResult");
-
-        // Лучший результат
-        this.bestResult = localStorage.getItem('myRes');
+        
+        // Хранение в памяти
+        this.myRes = localStorage.getItem('myRes');
     }
 
     // Отрисовка лучшего результата
-    draw() {
+    draw(bestResult) {
         
-        this.element.textContent = "Лучший результат: " + this.bestResult;
+        this.element.textContent = "Лучший результат: " + bestResult;
 
     }   
 

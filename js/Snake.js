@@ -32,7 +32,6 @@ class Snake {
 
     // Перемещение змейки(обновление данных в массиве координат тела змейки)
     move(playFieldWidth, playFieldHeight, cellSize) {
-        alert(this.snake.length);
         var head = { x: this.snake[0].x, y: this.snake[0].y }; // координаты головы змейки
   
         // Изменение координат головы в зависимости от направления
@@ -51,7 +50,7 @@ class Snake {
   
         // Проверка столкновения со стеной (смена координат для появления змейки с другой стороны поля)
         // Перебор всех клеток змейки
-/*        for (var i = 0; i < this.snake.length; i++) {
+        for (var i = 0; i < this.snake.length; i++) {
             if  (this.snake[i].x < 0) {
                 this.snake[i].x = playFieldWidth / cellSize - 1;
             } else if (this.snake[i].x >= playFieldWidth / cellSize) {
@@ -62,22 +61,24 @@ class Snake {
             } else if (this.snake[i].y >= playFieldHeight / cellSize) {
                 this.snake[i].y = 0;  
             }    
-        }*/
+        }
 
     }
   
     // Проверка, съела ли змейка яблоко
     checkApple(apple) {
-        head = { x: this.snake[0].x, y: this.snake[0].y };
-        
+
+        var head = { x: this.snake[0].x, y: this.snake[0].y };
+
         if (head.x === apple.x && head.y === apple.y) {
             // Необходимо генерировать новую позицию для яблока И увеличивать счет, если змейка съела яблоко
             return true;
-            } else {
+        } else {
             // Удаление хвоста, если змейка не съела яблоко
             this.snake.pop();
             return false;
         }
+
     }
 
     // Проверка столкновения змейки с собой
