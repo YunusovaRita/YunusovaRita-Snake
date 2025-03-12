@@ -67,8 +67,30 @@ class Main {
     play() {
         setInterval(this.gameLoop(), this.Snake.speed); // игровой цикл с заданным интервалом
     }
+
 }
 
+// Изменение направления движения змейки
+function changeDirection(keyCode) {
+    // 37: влево, 38: вверх, 39: вправо, 40: вниз
+    if (keyCode === 37 && direction !== "right") {
+        Snake.snake.direction = "left";
+    } else if (keyCode === 38 && Snake.snake.direction !== "down") {
+        Snake.snake.direction = "up";
+    } else if (keyCode === 39 && Snake.snake.direction !== "left") {
+        Snake.snake.direction = "right";
+    } else if (keyCode === 40 && Snake.snake.direction !== "up") {
+        Snake.snake.direction = "down";
+    }
+};
+
+// Обработка нажатий клавиш
+document.addEventListener("keydown", function (event) {
+    changeDirection(event.keyCode);
+  });
+
 new Main().test();
+
+
 
 //export default Main;
